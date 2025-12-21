@@ -4,6 +4,7 @@ import numpy as np
 vidPath="E:\\bad_applevid.mp4"
 cap =   cv2.VideoCapture(vidPath)
 temp=0
+#This is the process to get the video frame (fps:approx.30)
 # if cap.isOpened():
 #     while True:
 #         ret,frame=cap.read()
@@ -37,3 +38,4 @@ for i in range(6572):
     ascii_image = "\n".join("".join(row) for row in ascii_pixels)
     print(ascii_image)
     time.sleep(1/60)
+
