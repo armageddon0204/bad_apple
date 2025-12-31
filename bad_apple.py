@@ -37,7 +37,7 @@ else:
 
         ascii_pixels = ascii_pixels.reshape(new_height, new_width)#(rows,columns)
     
-        ascii_image = "\n".join("".join(row) for row in ascii_pixels)
+        ascii_image = "\n".join(["".join(row) for row in ascii_pixels])
         print(ascii_image)
         time.sleep(1/30)
 
