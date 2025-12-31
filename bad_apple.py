@@ -24,7 +24,7 @@ else:
         new_width = 100
         new_height = int(aspect_ratio * new_width * 0.55)
         img = img.resize((new_width, new_height))
-        img = img.convert("L")# pixel value
+        img = img.convert("L")# convert to grayscale 
     
         pixels = np.array(img)
     
