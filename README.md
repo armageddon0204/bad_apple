@@ -1,4 +1,6 @@
-# bad_apple
+# bad_apple #
 bad apple animation in terminal 
+
+
 installation:
-  pip3 install -r requirements OR pip install -r requirements
+  pip3 install -r requirements.txt OR pip install -r requirements.txt
