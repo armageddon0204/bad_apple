@@ -1,6 +1,7 @@
-import cv2 ,time,os
+import cv2 ,time,os,sys
 from PIL import Image
 import numpy as np
+from tqdm import tqdm
 vidPath="\\bad_apple\\bad_applevid.mp4"
 framesPath = "\\bad_apple\\framePic"
 def getFrames():
@@ -8,13 +9,14 @@ def getFrames():
     
     temp=0
     if cap.isOpened():
-        while True:
-            ret,frame=cap.read()
-            if not ret:
-                print("Cannot receive frame")
-                break
-            cv2.imwrite(f"\\bad_apple\\framepic\\{temp}.jpg",frame)
-            temp+=1
+        with tqdm(total=6572 , desc="getting frames")as t:
+            while True:
+                ret,frame=cap.read()
+                t.update(1)
+                if not ret:
+                    break
+                cv2.imwrite(f"\\bad_apple\\framepic\\{temp}.jpg",frame)
+                temp+=1
 def indicate():
     indicateLen = len(os.listdir(framesPath))
     
@@ -40,8 +42,9 @@ def indicate():
         ascii_pixels = ascii_pixels.reshape(new_height, new_width)#(rows,columns)
         
         ascii_image = "\n".join("".join(row) for row in ascii_pixels)
-        print(ascii_image)
-        time.sleep(1/10)
+        sys.stdout.write(ascii_image)
+        sys.stdout.flush()
+        time.sleep(1/60)
 if not os.path.exists(framesPath):
     os.makedirs(framesPath)
     getFrames()
