@@ -2,8 +2,8 @@ import cv2 ,time,os,sys
 from PIL import Image
 import numpy as np
 from tqdm import tqdm
-vidPath="\\bad_apple\\bad_applevid.mp4"
-framesPath = "\\bad_apple\\framePic"
+vidPath=".\\bad_apple\\bad_applevid.mp4"
+framesPath = ".\\bad_apple\\framePic"
 def getFrames():
     cap =  cv2.VideoCapture(vidPath)
     
@@ -15,14 +15,14 @@ def getFrames():
                 t.update(1)
                 if not ret:
                     break
-                cv2.imwrite(f"\\bad_apple\\framepic\\{temp}.jpg",frame)
+                cv2.imwrite(f".\\bad_apple\\framepic\\{temp}.jpg",frame)
                 temp+=1
 def indicate():
     indicateLen = len(os.listdir(framesPath))
     
     chars = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]#gray value : high => low 
     for i in range(indicateLen):
-        img = Image.open(f"\\bad_apple\\framePic\\{i}.jpg")
+        img = Image.open(f".\\bad_apple\\framePic\\{i}.jpg")
         width, height = img.size
         aspect_ratio = height / width
         new_width = 100
