@@ -6,4 +6,4 @@ Installation:
   pip3 install -r requirements.txt OR pip install -r requirements.txt
 
 Notice:
-  When the error occurs , you should adjust any directories in the code to fit in your environment. 
+  When the error occurs , you should adjust every directory in the code to fit in your environment. 
